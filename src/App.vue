@@ -2,7 +2,7 @@
 
 <template>
   <div id="app">
-      <router-view/>
+      <router-view></router-view>
   </div>
 </template>
 
@@ -11,6 +11,11 @@
 export default {
   name: 'app',
   components: {
+  },
+  mounted(){
+    this.$router.push({
+      path:'/login'
+    })
   }
 }
 </script>

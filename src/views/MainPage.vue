@@ -20,9 +20,12 @@
 
             <el-menu-item
               index="1-1"
-              @click="ccc"
+              @click="onClick('import')"
             >导入Excel</el-menu-item>
-            <el-menu-item index="1-2">下载Excel</el-menu-item>
+            <el-menu-item
+              index="1-2"
+              @click="onClick('export')"
+            >下载Excel</el-menu-item>
 
           </el-submenu>
           <el-submenu index="2">
@@ -70,11 +73,21 @@ export default {
     handleOpen(e) {
       console.log(e)
     },
-    ccc() {
-      console.log(11111)
-      this.$router.push({
-        path: '/uploadExcel'
-      })
+    onClick(v) {
+      console.log(v)
+      switch (v) {
+        case 'import':
+          this.$router.push({
+            name: '上传Excel'
+          })
+          break;
+        case 'export':
+          this.$router.push({
+            name: '下载Excel'
+          })
+          break;
+      }
+
 
     }
   }

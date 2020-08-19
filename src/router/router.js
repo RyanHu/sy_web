@@ -12,6 +12,7 @@ Vue.use(Router)
 import Login from '../views/Login'
 import MainPage from '../views/MainPage'
 import UploadExcel from '../views/UploadExcel'
+import DownloadExcel from '../views/DownloadExcel'
 import VueRouter from 'vue-router'
 
 
@@ -41,9 +42,17 @@ const routes = [
                     title: '导入Excel'
                 },
                 component: UploadExcel
+            },
+            {
+                path: '/downLoadExcel',
+                name: '下载Excel',
+                meta: {
+                    title: '导出Excel'
+                },
+                component: DownloadExcel
             }
         ]
-    },
+    }
 
 ]
 
