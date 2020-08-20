@@ -12,40 +12,57 @@
           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
               <el-form-item label="日期">
-                <span>{{ props.row.date }}</span>
+                <el-date-picker
+                    v-model="props.row.date"
+                    type="date"
+                    placeholder="选择日期"
+                    format="yyyy 年 MM 月 dd 日"
+                    value-format="yyyy-MM-dd">
+                </el-date-picker>
               </el-form-item>
               <el-form-item label="名称">
-                <span>{{ props.row.obj_name }}</span>
+                <input v-model=" props.row.obj_name "/>
+
               </el-form-item>
               <el-form-item label="数量">
-                <span>{{ props.row.obj_count }}</span>
+                <input v-model=" props.row.obj_count "/>
+
               </el-form-item>
               <el-form-item label="单位">
-                <span>{{ props.row.unit }}</span>
+                <input v-model=" props.row.unit "/>
+
               </el-form-item>
               <el-form-item label="供应商">
-                <span>{{ props.row.supplier }}</span>
+                <input v-model=" props.row.supplier "/>
+
               </el-form-item>
               <el-form-item label="科室">
-                <span>{{ props.row.requester }}</span>
+                <input v-model=" props.row.requester "/>
+
               </el-form-item>
               <el-form-item label="型号">
-                <span>{{ props.row.model }}</span>
+                <input v-model=" props.row.model "/>
+
               </el-form-item>
               <el-form-item label="备注">
-                <span>{{ props.row.remarks }}</span>
+                <input v-model=" props.row.remarks "/>
+
               </el-form-item>
               <el-form-item label="需求">
-                <span>{{ props.row.required }}</span>
+                <input v-model=" props.row.required "/>
+
               </el-form-item>
               <el-form-item label="采购模式">
-                <span>{{ props.row.order_mode }}</span>
+                <input v-model=" props.row.order_mode "/>
+
               </el-form-item>
               <el-form-item label="性质">
-                <span>{{ props.row.properties }}</span>
+                <input v-model=" props.row.properties "/>
+
               </el-form-item>
               <el-form-item label="上报单位">
-                <span>{{ props.row.reporter }}</span>
+                <input v-model=" props.row.reporter "/>
+
               </el-form-item>
             </el-form>
           </template>
@@ -74,7 +91,7 @@
     return {
       postFileUrl: 'http://www.baidu.com',
       tableData:[{date:'2020-07-01',obj_name:'电子血压计',obj_count:'1',unit:'台',supplier:'欧姆龙',requester:'心血管内科八区',model:'HBP-1300',remarks:'/',required:'2020-07-15前到货',order_mode:'采购/新采购/考察',properties:'设备/耗材/介入耗材/手术耗材',reporter:'延安大学咸阳医院/眉山心脑血管医院/西安北车医院/江苏如皋心脑血管医院',receiver:'设备科',receiving_date:'2020-07-14'}
-        ,{date:'2020-07-01',obj_name:'电子血压计',obj_count:'1',unit:'台',supplier:'欧姆龙',requester:'心血管内科八区',model:'HBP-1300',remarks:'/',required:'2020-07-15前到货',order_mode:'采购/新采购/考察',properties:'设备/耗材/介入耗材/手术耗材',reporter:'延安大学咸阳医院/眉山心脑血管医院/西安北车医院/江苏如皋心脑血管医院',receiver:'设备科',receiving_date:'2020-07-14'}
+        ,{date:'2020-07-01',obj_name:'电子血压计2',obj_count:'1',unit:'台',supplier:'欧姆龙',requester:'心血管内科八区',model:'HBP-1300',remarks:'/',required:'2020-07-15前到货',order_mode:'采购/新采购/考察',properties:'设备/耗材/介入耗材/手术耗材',reporter:'延安大学咸阳医院/眉山心脑血管医院/西安北车医院/江苏如皋心脑血管医院',receiver:'设备科',receiving_date:'2020-07-14'}
         ,{date:'2020-07-01',obj_name:'电子血压计',obj_count:'1',unit:'台',supplier:'欧姆龙',requester:'心血管内科八区',model:'HBP-1300',remarks:'/',required:'2020-07-15前到货',order_mode:'采购/新采购/考察',properties:'设备/耗材/介入耗材/手术耗材',reporter:'延安大学咸阳医院/眉山心脑血管医院/西安北车医院/江苏如皋心脑血管医院',receiver:'设备科',receiving_date:'2020-07-14'}
         ,{date:'2020-07-01',obj_name:'电子血压计',obj_count:'1',unit:'台',supplier:'欧姆龙',requester:'心血管内科八区',model:'HBP-1300',remarks:'/',required:'2020-07-15前到货',order_mode:'采购/新采购/考察',properties:'设备/耗材/介入耗材/手术耗材',reporter:'延安大学咸阳医院/眉山心脑血管医院/西安北车医院/江苏如皋心脑血管医院',receiver:'设备科',receiving_date:'2020-07-14'}
         ,{date:'2020-07-01',obj_name:'电子血压计',obj_count:'1',unit:'台',supplier:'欧姆龙',requester:'心血管内科八区',model:'HBP-1300',remarks:'/',required:'2020-07-15前到货',order_mode:'采购/新采购/考察',properties:'设备/耗材/介入耗材/手术耗材',reporter:'延安大学咸阳医院/眉山心脑血管医院/西安北车医院/江苏如皋心脑血管医院',receiver:'设备科',receiving_date:'2020-07-14'}
