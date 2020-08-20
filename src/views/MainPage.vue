@@ -4,7 +4,7 @@
     <el-container>
       <el-aside
         width="200px"
-        style="background-color: rgb(238, 241, 246)"
+        style="background-color: rgb(255, 255, 255)"
       >
         <el-menu
           default-active="1"
@@ -14,7 +14,7 @@
         >
           <el-submenu index="1">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-menu"></i>
               <span>Excel操作</span>
             </template>
 
