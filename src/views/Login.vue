@@ -22,9 +22,14 @@ export default {
   methods:{
     login(){
       console.log('账号密码是:'+this.account +','+this.password)
-      this.$router.push({
-          name:'主页'
-        })
+      // this.$router.push({
+      //     name:'主页'
+      //   })
+      this.axios({
+        method:'POST',
+        url:'a'
+      })
+
     }
   }
 }

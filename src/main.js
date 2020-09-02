@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/router'
-
 import './plugins/element.js'
 
-Vue.config.productionTip = false
+import axios from './util/NetworkUtils'
 
+Vue.config.productionTip = false
+Vue.use(axios)
 new Vue({
   router,
   render: h => h(App),
