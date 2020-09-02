@@ -6,9 +6,9 @@
         drag multiple
          name="file"
           class="upload-demo"
+          :headers="headers"
           :action="postFileUrl"
           :data="postData"
-          accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
           show-file-list
           on-success="uploadSuccess"
         ><i class="el-icon-upload"></i>
@@ -191,13 +191,9 @@
 
       ],
       headers: {
-        "Content-Type": "multipart/form-data"
+        token: "3AB9991ABFBB768417F0DA8F8BA3E3AB"
       }
-      , aaa: {
-        bb: 'ccc'
-      }, postData:{
-          token:"abc"
-      }
+      
     }
   }, methods: {
     save() {
