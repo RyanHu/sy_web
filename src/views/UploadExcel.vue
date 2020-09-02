@@ -7,7 +7,8 @@
          name="file"
           class="upload-demo"
           :action="postFileUrl"
-          accept='application/vnd.ms-excel'
+          :data="postData"
+          accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
           show-file-list
           on-success="uploadSuccess"
         ><i class="el-icon-upload"></i>
@@ -194,6 +195,8 @@
       }
       , aaa: {
         bb: 'ccc'
+      }, postData:{
+          token:"abc"
       }
     }
   }, methods: {
