@@ -21,7 +21,7 @@ const mutations = {
 }
 
 const actions = {
-  updateUserId({ commit, state }, userId) {
+  updateUserId({ commit }, userId) {
     commit('updateUserId', userId)
     localStorage.setItem('userId', userId)
   },

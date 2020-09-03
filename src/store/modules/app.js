@@ -29,16 +29,16 @@ const mutations = {
 
 
 const actions = {
-  upDateShowMask({ commit, state }, isShow) {
+  upDateShowMask({ commit }, isShow) {
     commit('setShowMask', isShow)
   },
-  updateLoginKey({ commit, state }, loginKey) {
+  updateLoginKey({ commit }, loginKey) {
     commit('setLoginKey', loginKey)
   },
-  updateLoadingStatus({ commit, state }, loading) {
+  updateLoadingStatus({ commit }, loading) {
     commit('setLoading', loading)
   },
-  updateToken({ commit, state },token)
+  updateToken({ commit },token)
   {
     commit('setToken', token)
 

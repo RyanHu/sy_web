@@ -33,9 +33,9 @@
               <i class="el-icon-menu"></i>
               <span>数据查询</span>
             </template>
-            <el-menu-item index="2-1">发起中</el-menu-item>
-            <el-menu-item index="2-2">采购中</el-menu-item>
-            <el-menu-item index="2-3">历史记录</el-menu-item>
+            <el-menu-item index="2-1" @click="onClick('queryInit')">发起中</el-menu-item>
+            <el-menu-item index="2-2" @click="onClick('queryProcessing')">采购中</el-menu-item>
+            <el-menu-item index="2-3" @click="onClick('queryHistory')">历史记录</el-menu-item>
           </el-submenu>
           <el-submenu index="3">
             <template slot="title">
@@ -84,6 +84,20 @@ export default {
         case 'export':
           this.$router.push({
             name: '下载Excel'
+          })
+          break;
+          case 'queryInit':
+          this.$router.push({
+            path: 'QueryInit'
+          })
+          break;
+           case 'queryProcessing':
+          this.$router.push({
+            path: 'queryProcessing'
+          })
+          break; case 'queryHistory':
+          this.$router.push({
+            path: 'queryHistory'
           })
           break;
       }

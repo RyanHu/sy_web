@@ -26,7 +26,7 @@ const mutations = {
 }
 
 const actions = {
-  updateLocation({commit, state}, location) {
+  updateLocation({commit}, location) {
     commit('setLocation', location)
   },
   getLocationOnce({commit, state}) {

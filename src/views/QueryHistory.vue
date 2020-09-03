@@ -1,26 +1,6 @@
 <template>
-  <el-container>
-    <el-header style="height:180px;">
-      <el-container>
-        <el-upload
-        drag multiple
-         name="file"
-         :show-file-list="showlist"
-          class="upload-demo"
-          :headers="headers"
-          :action="postFileUrl"
-          :on-success="uploadSuccess"
-          :on-error="uploadFailed"
-        ><i class="el-icon-upload"></i>
-          <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-          <div
-            class="el-upload__tip"
-            slot="tip"
-          >只能上传excel文件，且不超过500kb</div>
-        </el-upload>
-      </el-container>
-    </el-header>
-    <el-container style="max-height:800"  :v-show="tableData.lenght>0">
+      <el-container style="max-height:800"  :v-show="tableData.lenght>0">
+
       <el-table
         border
         max-height="800"
@@ -160,98 +140,54 @@
         />
 
       </el-table>
-    </el-container>
-    <el-container style="justify-content: space-around;">
-      <el-button
-        style="height:50px;width:200px;"
-        @click="save()"
-      >保存</el-button>
-      <el-button
-        style="height:50px;width:200px;"
-        @click="clean()"
-      >清空</el-button>
+      <el-footer>
+      <el-pagination
+        background
+        :page-size="pageSize"
+        layout="prev, pager, next"
+        @current-change="changePage" 
+        :total="totalSize">
+</el-pagination>
+      </el-footer>
 
     </el-container>
-
-  </el-container>
+    
 
 </template>
 <script>  export default {
   name: 'UploadExcel',
   mounted() {
-    
-  },
-  data() {
-    return {
-      postFileUrl: 'http://localhost:8080/buss/parseExcel',
-      tableData: [],
-      headers: {
-        token: this.$store.getters.token
-      },
-      showlist:false
-      
-    }
-  }, methods: {
-    save() {
-      let that = this
-        this.$http.postOrder({
-          orderList:JSON.stringify(this.tableData)
-        }).then(ret=>{
-            if(ret.code=='SUCCESS'){
-              that.clean()
-              that.$alert(ret.msg, '上传成功', 
-                        {
-                         confirmButtonText: '确定'
-                        });
-            }
-        })
-    },
-    clean() {
-      this.tableData = []
-    },
-    // eslint-disable-next-line no-unused-vars
-    uploadSuccess(response, file, fileList) {
-      console.log(response)
-
-      if(response.code=='SUCCESS'){
-        this.tableData = response.data
-        console.log(this.tableData.length)
-      }else if(response.code =='FAILED')
-      {
-        this.$alert(response.msg, '上传失败', {
-          confirmButtonText: '确定'
-        });
+   this.queryData()
+  },data(){
+      return{
+        pageNum:1,
+        pageSize:10,
+        totalSize:0,
+        totalPages:0,
+        tableData:[]
       }
-
-
-
+  },
+  methods:{
+      queryData(){
+        let that = this
+        this.$http.queryOrder({
+        page:that.pageNum,
+        status:'SUCCESS'
+        }).then(ret=>{
+        if(ret.code =='SUCCESS'){
+            that.pageNum = ret.data.pageNum
+            that.pageSize=ret.data.pageSize
+            that.totalSize=ret.data.totalSize
+            that.totalPages=ret.data.totalPages
+            that.tableData = ret.data.content
+        }
+    })
     },
-    // eslint-disable-next-line no-unused-vars
-    uploadFailed(err,file, fileList) {
-
+    changePage(p)
+    {
+        this.pageNum=p
+        this.queryData()
     }
   }
-}  </script>
-<style>
-.upload-demo .el-upload-dragger {
-  width: 150px;
-  height: 150px;
 }
-
-.upload-demo .el-upload-dragger .el-upload__text {
-  font-size: 12px;
-}
-
-.demo-table-expand {
-  font-size: 0;
-}
-.demo-table-expand label {
-  width: 90px;
-  color: #99a9bf;
-}
-.demo-table-expand .el-form-item {
-  margin-right: 0;
-  margin-bottom: 0;
-  width: 50%;
-}
-</style>
+</script>
