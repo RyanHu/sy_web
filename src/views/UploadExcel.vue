@@ -8,9 +8,8 @@
           class="upload-demo"
           :headers="headers"
           :action="postFileUrl"
-          :data="postData"
-          show-file-list
-          on-success="uploadSuccess"
+          :on-success="uploadSuccess"
+          :on-error="uploadFailed"
         ><i class="el-icon-upload"></i>
           <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
           <div
@@ -178,6 +177,11 @@
 </template>
 <script>  export default {
   name: 'UploadExcel',
+  mounted() {
+    this.$http.nihao({}).then(ret=>{
+      console.log(ret)
+    })
+  },
   data() {
     return {
       postFileUrl: 'http://localhost:8080/buss/postExcel',
@@ -191,7 +195,7 @@
 
       ],
       headers: {
-        token: "3AB9991ABFBB768417F0DA8F8BA3E3AB"
+        token: this.$store.getters.token
       }
       
     }
@@ -202,19 +206,25 @@
     clean() {
       this.tableData = []
     },
+    // eslint-disable-next-line no-unused-vars
     uploadSuccess(response, file, fileList) {
-      console.log('success!!!!')
-      console.log('response = ' + response)
-      console.log('file = ' + file)
-      console.log('fileList = ' + fileList)
+      console.log(response)
+
+      if(response.code=='SUCCESS'){
+        console.log(response)
+      }else if(response.code =='FAILED')
+      {
+        this.$alert(response.msg, '上传失败', {
+          confirmButtonText: '确定'
+        });
+      }
+
 
 
     },
-    uploadFailed(err, file, fileList) {
-      console.log('err!!!!')
-      console.log('err = ' + err)
-      console.log('file = ' + file)
-      console.log('fileList = ' + fileList)
+    // eslint-disable-next-line no-unused-vars
+    uploadFailed(err,file, fileList) {
+
     }
   }
 }  </script>

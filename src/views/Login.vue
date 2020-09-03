@@ -21,14 +21,24 @@ export default {
   },
   methods:{
     login(){
+      let that = this
       console.log('账号密码是:'+this.account +','+this.password)
-      this.$router.push({
-          name:'主页'
-        })
-      // this.axios({
-      //   method:'POST',
-      //   url:'a'
-      // })
+      this.$http.userLogin({
+        account: that.account,
+        password:that.password
+      }).then(ret =>{
+        console.log(ret)
+        if(ret.code == 'SUCCESS'){
+          that.$store.commit("setToken", ret.data.token)
+          that.$router.push({
+            path:'/main'
+          })
+        }else{
+          this.$alert(ret.msg, '登录失败', {
+            confirmButtonText: '确定'
+          });
+        }
+      })
 
     }
   }
