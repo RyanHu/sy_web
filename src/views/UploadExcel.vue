@@ -20,10 +20,10 @@
         </el-upload>
       </el-container>
     </el-header>
-    <el-container style="max-height:800"  :v-show="tableData.lenght>0">
+    <el-container   :v-show="tableData.lenght>0">
       <el-table
         border
-        max-height="800"
+        max-height="600"
         :data="tableData"
         stripe
         style="width: 100%;"
@@ -33,24 +33,23 @@
             <el-form
               label-position="left"
               inline
-              class="demo-table-expand"
             >
               <el-form-item label="日期">
                 <el-date-picker
-                  v-model="props.row.createTime"
+                  v-model="props.row.createtime"
                   type="date"
                   placeholder="选择日期"
-                  format="yyyy 年 MM 月 dd 日"
-                  value-format="yyyy-MM-dd"
+                  format="yyyy 年 mm 月 dd 日"
+                  value-format="yyyy-mm-dd"
                 >
                 </el-date-picker>
               </el-form-item>
               <el-form-item label="名称">
-                <el-input v-model=" props.row.objName " />
+                <el-input v-model=" props.row.objname " />
 
               </el-form-item>
               <el-form-item label="数量">
-                <el-input v-model=" props.row.objCount " />
+                <el-input v-model=" props.row.objcount " />
 
               </el-form-item>
               <el-form-item label="单位">
@@ -78,7 +77,7 @@
 
               </el-form-item>
               <el-form-item label="采购模式">
-                <el-input v-model=" props.row.orderMode " />
+                <el-input v-model=" props.row.ordermode " />
 
               </el-form-item>
               <el-form-item label="性质">
@@ -96,67 +95,51 @@
         <el-table-column
           prop="createTime"
           label="日期"
-          width="100"
         />
         <el-table-column
           prop="objName"
           label="名称"
-          width="150"
         />
         <el-table-column
           prop="objCount"
           label="数量"
-          width="50"
         />
         <el-table-column
           prop="unit"
           label="单位"
-          width="50"
         />
         <el-table-column
           prop="supplier"
           label="供应商"
-          width="80"
         />
         <el-table-column
           prop="requester"
           label="科室"
-          width="150"
         />
         <el-table-column
           prop="model"
           label="型号"
-          width="60"
         />
         <el-table-column
           prop="remarks"
           label="备注"
-          width="120"
         />
         <el-table-column
           prop="required"
           label="需求"
-          width="80"
         />
         <el-table-column
           prop="orderMode"
           label="采购模式"
-          width="100"
         />
         <el-table-column
           prop="properties"
           label="性质"
-          width="150"
         />
-        <el-table-column
-          prop="receiver"
-          label="收货人"
-          width="150"
-        />
+
         <el-table-column
           prop="reporter"
           label="上报单位"
-          width="300"
         />
 
       </el-table>

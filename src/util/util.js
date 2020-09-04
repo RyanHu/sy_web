@@ -125,6 +125,19 @@ export default {
         String(curr_date).length < 2 ? (curr_date = "0" + curr_date) : curr_date;
         let yyyyMMdd = curr_year + "" + curr_month + "" + curr_date;
         return yyyyMMdd;
+    },
+    getyyyyMMddHHmmss(d) {
+        let curr_date = d.getDate();
+        let curr_month = d.getMonth() + 1;
+        let curr_year = d.getFullYear();
+        let curr_Hour = d.getHours();
+        let curr_Minutes = d.getMinutes();
+        let curr_Seconds = d.getSeconds();
+
+        String(curr_month).length < 2 ? (curr_month = "0" + curr_month) : curr_month;
+        String(curr_date).length < 2 ? (curr_date = "0" + curr_date) : curr_date;
+        let yyyyMMdd = curr_year + "-" + curr_month + "-" + curr_date + " "+curr_Hour+":"+curr_Minutes+":"+curr_Seconds;
+        return yyyyMMdd;
     }
 
     ,
