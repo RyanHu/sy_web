@@ -98,7 +98,7 @@ export default {
     },
     genLink(batchNo)
     {
-      return "http://localhost:8080/buss/downloadExcel?batchNo="+batchNo
+      return "http://api.huhuwang.work:8082/buss/downloadExcel?batchNo="+batchNo
     }
   }
 }

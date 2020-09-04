@@ -7,7 +7,7 @@ import qslib from 'qs'
 import store from '@/store/index.js'
 import { Loading } from 'element-ui';
 
-let baseURL = 'http://localhost:8080/'
+let baseURL = 'http://api.huhuwang.work:8082/'
 // Full config:  https://github.com/axios/axios#request-config
 axios.defaults.baseURL = baseURL
 // axios.defaults.baseURL = 'http://localhost:8888/'

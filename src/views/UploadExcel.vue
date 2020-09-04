@@ -166,7 +166,7 @@
   },
   data() {
     return {
-      postFileUrl: 'http://localhost:8080/buss/parseExcel',
+      postFileUrl: 'http://api.huhuwang.work:8082/buss/parseExcel',
       tableData: [],
       headers: {
         token: this.$store.getters.token
