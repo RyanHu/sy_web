@@ -17,6 +17,7 @@ import QueryInit from '../views/QueryInit'
 import QueryProcessing from '../views/QueryProcessing'
 import QueryHistory from '../views/QueryHistory'
 import VueRouter from 'vue-router'
+import DpMain from "../views/DpMain";
 
 
 /**配置路由 */
@@ -29,6 +30,15 @@ const routes = [
             title: '登录'
         },
         component: Login
+    },
+    {
+        path:'/dpmain',
+        name:'大田主页',
+        meta: {
+            title: '大田监控中心'
+        },
+        component: DpMain,
+
     },
     {
         path: '/main',
