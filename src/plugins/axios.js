@@ -4,7 +4,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import util from '@/util/util.js'
 import qslib from 'qs'
-import store from '@/store/index.js'
+// import store from '@/store/index.js'
 import { Loading } from 'element-ui';
 
 let baseURL = 'http://api1.jshine.com.cn/'
@@ -14,6 +14,7 @@ axios.defaults.baseURL = baseURL
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.withCredentials = true
 axios.defaults.headers.post['Content-Type'] = 'application/json'
+axios.defaults.headers.post['Accept-Encoding'] = 'gzip'
 // axios.defaults.headers.post['Origin'] = 'http://20.16.3.116:8080'
 let qs = qslib
 let config = {
@@ -60,11 +61,11 @@ _axios.interceptors.request.use(
             fullscreen:true
         });
 
-        let token = store.getters.token;
-        console.log('token = '+token)
-        if (token!= undefined && token != '') {
-            config.headers['token']=token
-        }
+        // let token = store.getters.token;
+        // console.log('token = '+token)
+        // if (token!= undefined && token != '') {
+        //     config.headers['token']=token
+        // }
         if (config.method == 'post') {
             let params = util.objKeySort(config.data)
             params.sign = util.getMd5(params)

@@ -230,4 +230,17 @@ export default {
             return false;
         }
     }
+
+    ,
+
+    toHHmm (time) {
+        time =time + 8*60*60*1000
+        let s;
+        let hours = parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = parseInt((time % (1000 * 60 * 60)) / (1000 * 60));
+        s = (hours < 10 ? ('0' + hours) : hours) + ':' + (minutes < 10 ? ('0' + minutes) : minutes) ;
+        console.log('转换前->'+time + ',转换后->'+s)
+        return s;
+    }
+
 }

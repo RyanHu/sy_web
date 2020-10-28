@@ -14,18 +14,18 @@ export default   {
     },
 
     gwList(opt){
-        return window.axios.get('/dp/client/gwList.do',opt).then(res=>{
+        return window.axios.post('/dp/client/gwList.do',opt).then(res=>{
             return res;
         })
     },
     currentGatewayData(opt){
-        return window.axios.get('/dp/client/currentGatewayData.do',opt).then(res=>{
+        return window.axios.post('/dp/client/currentGatewayData.do',opt).then(res=>{
             return res;
         })
     },
 
     fiveMinuteData(opt){
-        return window.axios.get('/dp/client/fiveMinuteData.do',opt).then(res=>{
+        return window.axios.post('/dp/client/fiveMinuteData.do',opt).then(res=>{
             return res;
         })
     },
