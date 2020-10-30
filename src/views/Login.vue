@@ -34,10 +34,10 @@ export default {
       console.log('账号是:'+this.account +',vcode='+this.vcode+",vid= "+this.vid)
       this.$http.userLogin({
         mobile: that.account,
-        vid:that.vid,
-        vcode:that.vcode,
-        // vid:'715A9SAKA50XbRt9',
-        // vcode:'624530',
+        // vid:that.vid,
+        // vcode:that.vcode,
+        vid:'715A9SAKA50XbRt9',
+        vcode:'624530',
         type:'0'
       }).then(ret =>{
         console.log(ret)
