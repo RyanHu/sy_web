@@ -4,9 +4,21 @@
         <el-container>
             <el-container >
                 <el-header></el-header>
-            <div id="chart1" :style="{width: '45%', height: '30%'}"></div>
-            <div id="chart2" :style="{width: '45%', height: '30%'}"></div>
-            <div id="chart3" :style="{width: '45%', height: '30%'}"></div>
+
+              <dv-border-box-12 :style="{width:'45%',padding: '10px 0px 0px 10px '}">
+
+              <div id="chart1" :style="{ width:'100%',height: '100%'}"></div>
+              </dv-border-box-12>
+              <dv-border-box-12 :style="{width:'45%',padding: '10px 0px 0px 10px'}">
+
+              <div id="chart2" :style="{ width:'100%',height: '100%'}"></div>
+              </dv-border-box-12>
+
+              <dv-border-box-12 :style="{width:'45%',padding: '10px 0px 0px 10px'}">
+
+                <div id="chart3" :style="{width:'100%',height: '100%'}"></div>
+              </dv-border-box-12>
+
             </el-container>
 
         </el-container>

@@ -6,10 +6,13 @@ import '@/plugins/axios.js'
 import '@/api/'
 import store from './store/index.js'
 import echarts from 'echarts'
+import dataV from '@jiaminghi/data-view'
+
 
 
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
+Vue.use(dataV)
 
 new Vue({
   router,
