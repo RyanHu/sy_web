@@ -1,20 +1,22 @@
 'use strict'
 
 import Vue from 'vue'
+import consts from '@/util/const.js'
 import axios from 'axios'
 import util from '@/util/util.js'
 import qslib from 'qs'
 // import store from '@/store/index.js'
 import { Loading } from 'element-ui';
 
-let baseURL = 'http://api1.jshine.com.cn/'
+// let baseURL = 'http://api1.jshine.com.cn/'
+let baseURL = consts.baseUrl()
 // Full config:  https://github.com/axios/axios#request-config
 axios.defaults.baseURL = baseURL
 // axios.defaults.baseURL = 'http://localhost:8888/'
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.withCredentials = true
 axios.defaults.headers.post['Content-Type'] = 'application/json'
-axios.defaults.headers.post['Accept-Encoding'] = 'gzip'
+// axios.defaults.headers.post['Accept-Encoding'] = 'gzip'
 // axios.defaults.headers.post['Origin'] = 'http://20.16.3.116:8080'
 let qs = qslib
 let config = {
@@ -25,7 +27,6 @@ let config = {
         // ID: 12345
     },
     data: {
-        // firstName: 'Liuxiaofan'
     },
     withCredentials: false, // Check cross-site Access-Control
     // auth: {

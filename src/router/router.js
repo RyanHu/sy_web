@@ -18,6 +18,7 @@ import QueryProcessing from '../views/QueryProcessing'
 import QueryHistory from '../views/QueryHistory'
 import VueRouter from 'vue-router'
 import DpMain from "../views/DpMain";
+import YmhzBaffle from "../views/YmhzBaffle";
 
 
 /**配置路由 */
@@ -39,6 +40,14 @@ const routes = [
         },
         component: DpMain,
 
+    },
+    {
+        path:'/ymhzBaffle',
+        name:'主页',
+        meta: {
+            title: '总部消息管理平台'
+        },
+        component: YmhzBaffle,
     },
     {
         path: '/main',

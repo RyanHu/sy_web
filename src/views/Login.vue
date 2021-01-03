@@ -1,14 +1,10 @@
 <template>
   <el-container style="width: 20%; margin-left: 40%;margin-top:60px;" >
     <el-header>登录系统</el-header>
-    <el-input  placeholder="请输入手机号" v-model="account" ></el-input>
+    <el-input  placeholder="请输入用户名" v-model="account" ></el-input>
     <el-container> <el-input placeholder="请输入验证码" v-model="vcode"></el-input>
-      <el-button @click="sendVerifyCode" type="success" :disabled="!show">
-        获取验证码
-        <span v-show="!show" class="count">({{count}}s)</span>
-      </el-button>
     </el-container>
-    <el-button v-on:click="login">登录</el-button>
+    <el-button v-on:click="login4baffle">登录</el-button>
   </el-container>
 
 </template>
@@ -29,6 +25,16 @@ export default {
     }
   },
   methods:{
+    login4baffle(){
+      let that = this
+      if(this.account == 'admin' && this.vcode == '123456')
+      {
+        that.$router.push({
+          path:'/ymhzBaffle'
+        })
+      }
+    },
+
     login(){
       let that = this
       console.log('账号是:'+this.account +',vcode='+this.vcode+",vid= "+this.vid)
